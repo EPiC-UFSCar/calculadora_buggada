@@ -7,8 +7,8 @@
 /**
  * Imprime cabeçalho da calculadora.
  */
-// FIXME tem algo de errado nos espaçamentos
 void imprimir_cabecalho() {   
+	// FIXME tem algo de errado nos espaçamentos
     printf("---------- EPiC Calculator -----------\n");
     printf("- Uso:                               -\n");
     printf("-      operando1 operacao operando2   -\n");
@@ -38,16 +38,22 @@ void imprimir_saida(int a, char b, int c, int d) {
  * Imprime uma mensagem associada a um código numérico.
  * @param erro código do erro.
  */
-// FIXME Nome de função incoerente
-// Quando erro = 1, não é uma mensagem de erro.
-// Tem um nome melhor pra essa função?
 void imprimir_erro(int erro) {
+	// FIXME Nome de função incoerente
+	// Quando erro = 1, não é uma mensagem de erro.
+	// Tem um nome melhor pra essa função?
     switch (erro) {
         case 1:
             printf("So Long, and Thanks for All the Fish...");
             break;
         case 2:
             printf("Operador desconhecido. Saindo...\n");
+            break;
+        case 3:
+            printf("A operação executada gerou o valor %d.\n" \
+                    "Isso pode ser tanto o resultado da operacao,\n" \
+                    "quanto o mal uso da funcao calcular(),\n" \
+                    "que recebeu uma operacao ilegal.\n", -INT_MAX);
             break;
     }
 }
@@ -129,13 +135,13 @@ int calcular(int a, int b, char op)  {
  * @see imprimir_saida()
  * @return Código de status gerado a partir do processamento do último input
  */
-int processarEntradaECalcular() {
+int processarEntradaESaida() {
     int n1, n2;    
     char op;
     int resultado;
     
     // FIXME Acho que esse é o magic_number errado. Qual era a resposta mesmo? e.e
-    int magic_number = 41;
+	int magic_number = 41;
 
     scanf("%d %c %d", &n1, &op, &n2);
 
@@ -164,7 +170,7 @@ int processarEntradaECalcular() {
  * @see imprimir_cabecalho()
  * @see imprimir_entrada()
  * @see imprimir_erro()
- * @see processarEntradaECalcular()
+ * @see processarEntradaESaida()
  */
 void rodar_calc() {
     int status = 0;
@@ -174,7 +180,7 @@ void rodar_calc() {
     do {
         imprimir_entrada();
 
-        status = processarEntradaECalcular();
+        status = processarEntradaESaida();
         
         if (status != 0) {
             imprimir_erro(status);
