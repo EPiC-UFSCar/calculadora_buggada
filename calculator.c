@@ -1,6 +1,13 @@
 #include <stdio.h>
 #include <limits.h>
 
+#define STATUS_OK 0
+#define STATUS_SAIR 1
+#define STATUS_OPERADOR_INVALIDO 2
+#define STATUS_INT_MAX 3
+
+// FIXME Acho que esse é o magic_number errado. Qual era a resposta mesmo? e.e
+#define MAGIC_NUMBER 41
 
 // >>>>>>>>>> Impressões na tela >>>>>>>>>>
 
@@ -43,13 +50,13 @@ void imprimir_erro(int erro) {
 	// Quando erro = 1, não é uma mensagem de erro.
 	// Tem um nome melhor pra essa função?
     switch (erro) {
-        case 1:
+        case STATUS_SAIR:
             printf("So Long, and Thanks for All the Fish...");
             break;
-        case 2:
+        case STATUS_OPERADOR_INVALIDO:
             printf("Operador desconhecido. Saindo...\n");
             break;
-        case 3:
+        case STATUS_INT_MAX:
             printf("A operação executada gerou o valor %d.\n" \
                     "Isso pode ser tanto o resultado da operacao,\n" \
                     "quanto o mal uso da funcao calcular(),\n" \
@@ -81,15 +88,21 @@ int div(int a, int b) {
 // >>>>>>>>>> Validações >>>>>>>>>>
 /**
  * Testa se op é uma operação válida/conhecida.
- * @param op char da operação a ser verificada.
+ * @param a o primeiro operando
+ * @param b o segundo operando
+ * @param op a operação
  * @see calcular()
  * @return 0 se op é válido, 1 caso contrário
  */
-int operacao_valida(char op)  {
+int operacao_valida(int a, int b, char op)  {
+    // TODO o que fazer se op == '/' e b == 0?
     switch (op) {
         case '+':
+            return 0;
         case '-':
+            return 0;
         case '*':
+            return 0;
         case '/':
             return 0;
         default:
@@ -122,7 +135,7 @@ int calcular(int a, int b, char op)  {
 
         default:
 			// impossível de acontecer, considerando que
-			// operacao_valida(op) foi testada antes
+			// operacao_valida(a, b, op) foi testada antes
             return -INT_MAX;
     }
 }
@@ -135,31 +148,31 @@ int calcular(int a, int b, char op)  {
  * @see imprimir_saida()
  * @return Código de status gerado a partir do processamento do último input
  */
-int processarEntradaESaida() {
+int processar_entrada_e_saida() {
     int n1, n2;    
     char op;
     int resultado;
     
-    // FIXME Acho que esse é o magic_number errado. Qual era a resposta mesmo? e.e
-	int magic_number = 41;
-
     scanf("%d %c %d", &n1, &op, &n2);
+    
+    resultado = operacao_valida(n1, n2, op);
 
-	if (operacao_valida(op) != 0) {
-		return 2;
+    if (resultado != STATUS_OK) {
+		return resultado;
 	}
 
-    resultado = calcular(n2, n1, op);
+    resultado = calcular(n1, n2, op);
 
-    if (resultado == magic_number) {
-        return 1;
+    if (resultado == MAGIC_NUMBER) {
+        return STATUS_SAIR;
     }
     else if (resultado == -INT_MAX) {
-        return 3;
+        return STATUS_INT_MAX;
+    }
+    else {
+        imprimir_saida(n1, op, n2, resultado);
     }
  
-    imprimir_saida(n1, op, n2, resultado);
-
     return 0;
 }
 
@@ -170,23 +183,23 @@ int processarEntradaESaida() {
  * @see imprimir_cabecalho()
  * @see imprimir_entrada()
  * @see imprimir_erro()
- * @see processarEntradaESaida()
+ * @see processar_entrada_e_saida()
  */
 void rodar_calc() {
-    int status = 0;
+    int status = STATUS_OK;
 
     imprimir_cabecalho();
 
     do {
         imprimir_entrada();
 
-        status = processarEntradaESaida();
+        status = processar_entrada_e_saida();
         
-        if (status != 0) {
+        if (status != STATUS_OK) {
             imprimir_erro(status);
         }
 
-    } while (status != 1);
+    } while (status != STATUS_SAIR);
 }
 // <<<<<<<<<< Lógica <<<<<<<<<<
 
@@ -195,6 +208,3 @@ int main() {
 
     return 0;
 }
-
-
-
