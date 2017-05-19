@@ -7,6 +7,19 @@ Esse repositório foi gerado em um Workshop sobre Git e GitHub oferecido pela Es
 
 Esse é o projeto de uma Calculadora extremamente simples. Ela foi desenvolvida em C apenas para aplicar conhecimentos como função, #define's etc.
 
+## O que ela faz
+
+Exemplo de uso:
+- 4+2
+- 2 / 1
+- 20+21     <- a calculadora fecha quando a resposta é 41
+
+Operações disponíveis:
+- Adição
+- Subtração
+- Multiplicação
+- Divisão inteira
+
 ## Como ler o código
 
 Primeiramente, execute o código e faça alguns testes para entender como a calculadora funciona. Por enquanto, a calculadora fecha quando digitamos alguma operação cujo resultado é 41.

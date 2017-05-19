@@ -4,9 +4,9 @@
 
 Esse projeto foi desenvolvido especialmente para o Workshop sobre Git e GitHub oferecido pela **Escola Piloto de Computação** da **Universidade Federal de São Carlos**, [EPiC-UFSCar](https://www.facebook.com/epicufscar/). A Calculadora Buggada oferece a oportunidade para que os participantes do workshop interajam efetivamente com o Git e o GitHub, simulando um workflow real de desenvolvimento de uma aplicação.
 
-Esse repositório propõe um desafio: corrigir bugs e adicionar funcionalidades a um protótipo de calculadora desenvolvida em C. Todas as informações necessárias para a execução do desafio proposto estão contidas nesse arquivo. Dessa forma, iremos fortalecer os conceitos e comandos ensinados, além de permitir que dúvidas e problemas surjam e sejam resolvidos da forma mais natural possível.
+Esse repositório propõe um desafio: corrigir bugs e adicionar funcionalidades a um protótipo de calculadora desenvolvida em C. Todas as informações necessárias para a execução do desafio estão contidas nesse arquivo. Dessa forma, iremos fortalecer os conceitos e comandos ensinados, além de permitir que dúvidas e problemas surjam e sejam resolvidos da forma mais natural possível.
 
-Ah sim, **o desafio é em duplas**! Um será o *Owner*, ou dono do projeto, e outro será um *Contributor*, isto é, uma pessoa interessada em contribuir com o projeto do *Owner*. Vocês trabalharam juntos para realizar as tarefas.
+Ah sim, **o desafio é em duplas**! Um será o *Owner*, ou dono do projeto, e outro será um *Contributor*, isto é, uma pessoa interessada em contribuir com o projeto do *Owner*. Vocês trabalharão juntos para realizar as tarefas.
 
 Algumas dicas sobre desenvolvimento de projetos são apresentadas nesse repositório. Para começar: 
 
@@ -23,7 +23,7 @@ Espera-se que você já tenha instalado o [Git](https://git-scm.com/downloads) e
 
 A ideia é simular um workflow de trabalho parecido com uma situação real. Normalmente, temos um projeto que deve ser desenvolvido por várias pessoas. Assim, é necessário uma forma de gerenciar versões do código, incluindo informações sobre quem foi o responsável por realizar determinada alteração ou quais tarefas ainda precisam ser realizadas.
 
-O Git é capaz de nos responder a primeira pergunta, sobre quem alterou, quando e porquê. Entretanto, para responder a pergunta de o que ainda deve ser feito utilizaremos uma funcionalidade do GitHub: as Issues.
+O Git é capaz de nos responder a primeira pergunta, sobre quem alterou, quando e por quê. Entretanto, para responder a pergunta de o que ainda deve ser feito utilizaremos uma funcionalidade do GitHub: as Issues.
 
 Executar o desafio proposto nesse repositório é equivalente a realizar os seguintes passos:
 
@@ -58,9 +58,7 @@ Porém a ideia para esse projeto é justamente começar um repositório novo, ut
 
 **Parabéns**, você acaba de cometer um dos "erros" mais comuns quando trabalhando com versionamento de código. O erro foi o seguinte: você demorou 200 linhas de código (calculator.c) para dar o seu primeiro commit!
 
-É claro que vocês não poderiam ter feito isso, pois receberam o arquivo já pronto. Mas faz sentido, não?
-
-Se você quiser tirar total proveito de um Versionador de Código, será uma boa prática commitar frequentemente. A frequência de commits varia entre pessoas e projetos, mas nesse caso é simples ver que o código não foi escrito de uma vez só e, portanto, deveríamos ter commitado versões parciais, enquanto estávamos construindo o projeto.
+É claro que vocês não poderiam ter feito isso, pois receberam o arquivo já pronto. Mas faz sentido, não? Se você quiser tirar total proveito de um Versionador de Código, será uma boa prática commitar frequentemente. A frequência de commits varia entre pessoas e projetos, mas nesse caso é simples ver que o código não foi escrito de uma vez só e, portanto, deveríamos ter commitado versões parciais, enquanto estávamos construindo o projeto.
 
 8. Na aba de configurações do repositório no GitHub, adicione a conta do *Contributor* como Colaborador
 
@@ -70,7 +68,7 @@ Ao adicionar o usuário como Colaborador, ele poderá adicionar commits ao repos
 ### Setup - Contributor
 1. Dê `git clone` na URL disponibilizada pelo *Owner*
 
-Perceba que a situação dessa vez é diferente. Antes utilizamos o repositório original apenas para acessar os arquivos. Agora queremos realmente contribuir com o projeto do *Owner*
+Perceba que a situação dessa vez é diferente. Antes utilizamos o repositório original apenas para acessar os arquivos. Agora queremos realmente contribuir com o projeto do *Owner*.
 
 
 ### Issues
